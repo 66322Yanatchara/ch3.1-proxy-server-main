@@ -1,0 +1,13 @@
+@echo off
+echo Stopping containers...
+docker-compose down
+
+echo Building application...
+call build.bat
+
+echo Starting containers...
+docker-compose up -d
+
+echo Checking status...
+timeout /t 5
+call status.bat

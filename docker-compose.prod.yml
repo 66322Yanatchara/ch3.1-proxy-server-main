@@ -1,0 +1,15 @@
+services:
+  nginx:
+    restart: always
+    environment:
+      - NODE_ENV=production
+
+  backend:
+    restart: always
+    environment:
+      - NODE_ENV=production
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
