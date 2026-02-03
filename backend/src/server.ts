@@ -25,24 +25,7 @@ if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
 
-// demo endpoint เดิมจาก Lab 1.2
-app.get('/api/demo', (req, res) => {
-  const logMessage = `Request at ${new Date().toISOString()}: ${req.ip}\n`;
-  fs.appendFileSync(path.join(logsDir, 'access.log'), logMessage);
 
-  res.json({
-    git: {
-      title: 'Advanced Git Workflow',
-      detail:
-        'ใช้ branch protection บน GitHub, code review ใน PR, และ squash merge เพื่อ history สะอาด',
-    },
-    docker: {
-      title: 'Advanced Docker',
-      detail:
-        'ใช้ multi-stage build, healthcheck ใน Dockerfile, และ orchestration ด้วย Compose/Swarm',
-    },
-  });
-});
 
 // health check root
 app.get('/', (_req, res) => {

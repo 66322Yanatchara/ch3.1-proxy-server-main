@@ -34,7 +34,7 @@ COPY --from=builder --chown=node:node /app/node_modules/.prisma ./node_modules/.
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost:3000/api/demo || exit 1
+  CMD wget --quiet --tries=1 --spider http://localhost:3000/ || exit 1
 
 EXPOSE 3000
 
